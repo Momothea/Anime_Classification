@@ -1,6 +1,6 @@
 {% extends "base.html"%}
 
-{% block title %}Sign-Up{% endblock %}
+{% block title %}Classify{% endblock %}
 
 {% block content %} 
 <form method="POST">
@@ -71,5 +71,5 @@
 
 {% block result %} 
 <h3 align="left"> Result</h3>
-The result is :
+The predicted rating for {% if title %} {{title}} {% endif %} is : 
 {% endblock %}
