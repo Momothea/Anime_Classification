@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css"/>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -15,6 +16,10 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+    <style>
+
+    </style>
+
     <title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
@@ -31,15 +36,25 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" id="home" href="/"> Home</a>
                 <a class="nav-item nav-link" id="home" href="/classify"> Classify</a>
-                <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-                <a class="nav-item nav-link" id="login" href="/login">Login</a>
-                <a class="nav-item nav-link" id="signUp" href="/sign-up"> Sign-up</a>
-
+                
             </div>
         </div>
     </nav>
+  <div class="fbox">
+    <div>
+      <img class="left_image"  src="{{ url_for('static', filename='Ichigo_Kurosaki_True_Shikai.jpg') }}" alt="Ichigo"  >
+    </div>
     
     <div class="container">{% block content %} {% endblock %}</div>
+
+    <div>
+      <img class="right_image" src="{{ url_for('static', filename='Satoru_Gojo_29.jpg') }}" alt="Gojo"  >
+    </div>
+    
+  </div>
+    
+    
+    
     <div class="container">{% block result %} {% endblock %}</div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

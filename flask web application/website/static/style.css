@@ -1,0 +1,19 @@
+.right_image {
+    width :600px;
+     height: 1000px;
+  }
+  
+ 
+.left_image {
+    width: 400px;
+    height:1000px
+  }
+
+.fbox {
+    display: flex;
+    flex-direction: row;
+  }
+
+.formm{
+  width: 100%;
+}
