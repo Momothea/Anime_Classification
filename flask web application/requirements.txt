@@ -3,3 +3,4 @@ flask-login
 flask-sqlalchemy
 requests
 prometheus-client
+prometheus-flask-exporter

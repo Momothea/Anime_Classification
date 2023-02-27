@@ -3,12 +3,22 @@ global:
 
 scrape_configs:  
   - job_name: 'web'
-    scrape_interval: 5s
-    static_configs:      
-    - targets: ['web:5000']
+  dns_sd_configs:
+      - names: ['app']
+        port: 5000
+        type: A
+        refresh_interval: 5s
+    #scrape_interval: 5s
+    #static_configs:      
+    #- targets: ['web:5000']
     
 scrape_configs:  
   - job_name: 'model'
-    scrape_interval: 5s
-    static_configs:      
-    - targets: ['model:5001']
+    dns_sd_configs:
+      - names: ['app']
+        port: 5001
+        type: A
+        refresh_interval: 5s
+    #scrape_interval: 5s
+    #static_configs:      
+    #- targets: ['model:5001']
