@@ -1,5 +1,8 @@
 # This file contains the main views or endpoint of the application.
 from flask import Blueprint, render_template, request
+from prometheus_client import start_http_server, Summary, Counter, Info
+#i = Info('app_info', 'Application info', version='1.0.3')
+#c = Counter('http_requests_total', 'HTTP Requests total', labels=['GET', '/'])
 
 views = Blueprint('views', __name__)
 
