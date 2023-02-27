@@ -1,0 +1,30 @@
+version: "3.9"
+networks:
+  mynetwork:
+  ipam:
+    driver: bridge 
+
+services:
+  web:
+    image: flaskweb 
+    
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+
+  model: 
+    image: model
+    
+    ports:
+      - "5001:5001"
+    networks:
+      - mynetwork
+    depends_on:
+      - web
+  
+
+
+#volumes:
+#  myvolume:
+#    #driver: local
