@@ -10,6 +10,8 @@ volumes:
   grafana_data:
     driver: local
   
+  
+  
 
 services:
   web:
@@ -19,12 +21,16 @@ services:
       - "5000:5000"
     networks:
       - mynetwork
+    
 
   model: 
     image: model
     
     ports:
       - "5001:5001"
+    
+    volumes: 
+      - ./modeldata:/app/data
     networks:
       - mynetwork
     depends_on:

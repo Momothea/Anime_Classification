@@ -1,0 +1,17 @@
+{
+	"ulid": "01GTBTVR7W4BMHBNF3BQ05RSMA",
+	"minTime": 1677571200000,
+	"maxTime": 1677578400000,
+	"stats": {
+		"numSamples": 430022,
+		"numSeries": 2811,
+		"numChunks": 3920
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GTBTVR7W4BMHBNF3BQ05RSMA"
+		]
+	},
+	"version": 1
+}
