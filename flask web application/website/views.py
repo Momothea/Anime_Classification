@@ -2,9 +2,11 @@
 from flask import Blueprint, render_template, request, Response, json
 import prometheus_client
 import time
+import requests
 from prometheus_client import start_http_server, Summary, Counter, Info, Histogram
 from prometheus_client.core import CollectorRegistry
 from prometheus_flask_exporter import PrometheusMetrics
+import random
 
 views = Blueprint('views', __name__)
 
@@ -13,8 +15,8 @@ _INF = float("inf")
 graphs = {}
 
 
-#graphs['c'] = Counter('python_request_operations_total','the total number of processed requests')
-#graphs['h'] = Histogram('python_request_duration_seconds', 'Histogram for the duration in seconds', buckets=(1,2, 5, 10, _INF))
+graphs['c'] = Counter('python_request_operations_total','the total number of processed requests')
+graphs['h'] = Histogram('python_request_duration_seconds', 'Histogram for the duration in seconds', buckets=(1,2, 5, 10, _INF))
 
 @views.route('/')
 def home():
@@ -22,7 +24,7 @@ def home():
 
 @views.route('/classify', methods=['GET','POST'])
 def classify():
-    #graphs['c'].inc()
+    graphs['c'].inc()
     #data = request.form
     #print(data) # print an ImmutableMultiDict
     if request.method == 'POST':
@@ -31,13 +33,25 @@ def classify():
         Description = request.form.get('Description')
         Producer = request.form.get('Producer')
         Studio = request.form.get('Studio')
-        title = request.form.get('title')
+        Type = request.form.get('Type')
 
-        data = {'Title':Title }
+        data = {'Title':Title,
+                'Genre':Genre,
+                  'Description':Description,
+                  'Producer':Producer,
+                  'Studio':Studio,
+                  'Type': Type}
+        
         json_data = json.dumps(data)
-        #response = request.post('http://model:5001/receive_data', json=json_data)
+        headers = {'Content-Type': 'application/json'}
 
-        return render_template("classify.html", title =  Title)
+        
+
+        response = requests.post('http://model:5001/receive_data', json=json_data, headers=headers)
+
+        data = response.text
+
+        return render_template("classify.html", title =  str(data))
 
     return render_template("classify.html")
 
@@ -46,4 +60,4 @@ def request_count():
     res = []
     for k,v in graphs.items():
         res.append(prometheus_client.generate_latest(v))
-    return Response(res, mimetype='text/plain')
+    return Response(res, mimetype='text/plain') 

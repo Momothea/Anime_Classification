@@ -2,3 +2,6 @@ flask
 requests
 Response
 prometheus-flask-exporter
+joblib
+gensim
+scikit-learn

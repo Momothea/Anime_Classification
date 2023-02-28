@@ -1,0 +1,17 @@
+{
+	"ulid": "01GTC35661KZSZFP8V593AKE7Y",
+	"minTime": 1677578400000,
+	"maxTime": 1677585600000,
+	"stats": {
+		"numSamples": 332012,
+		"numSeries": 1857,
+		"numChunks": 4235
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GTC35661KZSZFP8V593AKE7Y"
+		]
+	},
+	"version": 1
+}
