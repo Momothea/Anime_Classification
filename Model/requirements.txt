@@ -1,0 +1,4 @@
+flask
+requests
+Response
+prometheus-flask-exporter

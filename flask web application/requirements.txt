@@ -1,0 +1,7 @@
+flask
+flask-login
+flask-sqlalchemy
+requests
+Response
+prometheus-client
+prometheus-flask-exporter

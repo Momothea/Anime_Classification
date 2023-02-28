@@ -1,0 +1,75 @@
+{% extends "base.html"%}
+
+{% block title %}Sign-Up{% endblock %}
+
+{% block content %} 
+<form method="POST">
+    <h3 align="center"> Enter info</h3>
+    <div class = "form-group">
+        <label for = Title>Anime Title</label>
+        <input
+            type="text"
+            class="form-control"
+            id="Title"
+            name="Title"
+            placeholder="Enter Title"
+      />
+    </div>
+    <div class = "form-group">
+        <label for = Genre>Anime Genre(s)</label>
+        <input
+            type="text"
+            class="form-control"
+            id="Genre"
+            name="Genre"
+            placeholder="Enter Genre"
+      />
+    </div>
+    <div class = "form-group">
+        <label for = Description>Anime Description</label>
+        <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="Description"
+            placeholder="Enter Description"
+      />
+    </div>
+    <div class = "form-group">
+        <label for = Type>Anime Type</label>
+        <input
+            type="text"
+            class="form-control"
+            id="Type"
+            name="Type"
+            placeholder="Enter Type"
+      />
+    </div>
+    <div class = "form-group">
+        <label for = Producer>Anime Producer</label>
+        <input
+            type="text"
+            class="form-control"
+            id="Producer"
+            name="Producer"
+            placeholder="Enter Producer"
+      />
+    </div>
+    <div class = "form-group">
+        <label for = Studio>Anime Studio</label>
+        <input
+            type="text"
+            class="form-control"
+            id="Studio"
+            name="Studio"
+            placeholder="Enter Studio"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+
+{% block result %} 
+<h3 align="left"> Result</h3>
+The result is :
+{% endblock %}
