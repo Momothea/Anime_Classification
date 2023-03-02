@@ -15,7 +15,7 @@ volumes:
 
 services:
   web:
-    image: momothe/flask:flaskweb_latest 
+    image: flaskweb 
     
     ports:
       - "5000:5000"
@@ -24,7 +24,7 @@ services:
     
 
   model: 
-    image: momothe/flask:model_latest
+    image: model
     
     ports:
       - "5001:5001"
@@ -37,7 +37,7 @@ services:
       - web
   node-exporter:    
     image: prom/node-exporter:latest
-    container_name: node-exporter2
+    container_name: node-exporter
     restart: unless-stopped
     volumes:      
       - /proc:/host/proc:ro      
@@ -58,7 +58,7 @@ services:
   
   prometheus:
     image: prom/prometheus:latest
-    container_name: prometheus2
+    container_name: prometheus
     restart: unless-stopped
     # user: "501"
     # environment:
@@ -87,7 +87,7 @@ services:
   
   grafana:
     image: grafana/grafana-oss:latest
-    container_name: grafana2
+    container_name: grafana
     # user: "501"
     ports:
       - "3030:3000"
@@ -98,7 +98,7 @@ services:
       # - ./grafana/data: /var/lib/grafana
     # user: "1000" 
     depends_on:
-      - prometheus2
+      - prometheus
     
     networks:       
       - mynetwork
