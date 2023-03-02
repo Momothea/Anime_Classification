@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
         DOCKERHUB_CREDENTIALS = credentials('momotheID')
+        GITHUB_CREDENTIALS = credentials('privateKey1')
     }
     
 
@@ -15,12 +16,12 @@ pipeline {
         }
         stage('Creanting staging branch') {
             steps { 
-                
-                sh'git branch --delete staging'
-                sh'git checkout -b staging remotes/origin/dev'
-                sh'git checkout staging'
-                sh'git branch --all'
-                    
+                sshagent(credentials: ['privateKey1']) {
+                    sh'git branch --delete staging'
+                    sh'git checkout -b staging remotes/origin/dev2'
+                    sh'git checkout staging'
+                    sh'git branch --all'
+                    }
             }
         }
         
@@ -69,14 +70,14 @@ pipeline {
             }
         }
 
-        stage('Merge with master'){
+        stage('Merge with dev3'){
             steps {
                 sshagent(credentials: ['privateKey1']) {
                     sh'git pull'
                     sh'git checkout staging'
-                    sh'git checkout master'
+                    sh'git checkout dev3'
                     sh'git merge staging' 
-                    sh'git push -f origin master'
+                    sh'git push -f origin dev3'
                     }
             }
         }    
