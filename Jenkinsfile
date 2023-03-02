@@ -43,11 +43,11 @@ pipeline {
             steps {
                 sh'cd  flask_web_application'
                 sh'pwd'
-                sh'docker build -t momothe/flask:flaskweb_latest .'
+                sh'docker build -t momothe/flask:flaskweb_latest ./flask_web_application'
                 sh'cd ..'
                 sh'cd  Model'
                 sh'pwd'
-                sh'docker build -t momothe/flask:model_latest .'
+                sh'docker build -t momothe/flask:model_latest ./Model'
                 sh'cd ..'
             }
         }
