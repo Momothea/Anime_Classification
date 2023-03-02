@@ -58,7 +58,7 @@ services:
   
   prometheus:
     image: prom/prometheus:latest
-    container_name: prometheus
+    container_name: prometheus2
     restart: unless-stopped
     # user: "501"
     # environment:
