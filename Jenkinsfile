@@ -75,6 +75,7 @@ pipeline {
                     sh'git checkout dev3'
                     sh'git merge staging' 
                     sh'git push -f origin dev3'
+                    
                     }
             }
         }    
