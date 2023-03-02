@@ -15,7 +15,7 @@ volumes:
 
 services:
   web:
-    image: flaskweb 
+    image: momothe/flask:flaskweb_latest 
     
     ports:
       - "5000:5000"
@@ -24,7 +24,7 @@ services:
     
 
   model: 
-    image: model
+    image: momothe/flask:model_latest
     
     ports:
       - "5001:5001"
