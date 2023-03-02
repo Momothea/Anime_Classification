@@ -42,9 +42,11 @@ pipeline {
         stage('build  Docker images') {
             steps {
                 sh'cd  flask_web_application'
+                sh'pwd'
                 sh'docker build -t momothe/flask:flaskweb_latest .'
                 sh'cd ..'
                 sh'cd  Model'
+                sh'pwd'
                 sh'docker build -t momothe/flask:model_latest .'
                 sh'cd ..'
             }
