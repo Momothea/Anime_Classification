@@ -87,7 +87,7 @@ services:
   
   grafana:
     image: grafana/grafana-oss:latest
-    container_name: grafana
+    container_name: grafana2
     # user: "501"
     ports:
       - "3030:3000"
@@ -98,7 +98,7 @@ services:
       # - ./grafana/data: /var/lib/grafana
     # user: "1000" 
     depends_on:
-      - prometheus
+      - prometheus2
     
     networks:       
       - mynetwork
