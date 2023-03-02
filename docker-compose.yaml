@@ -37,7 +37,7 @@ services:
       - web
   node-exporter:    
     image: prom/node-exporter:latest
-    container_name: node-exporter
+    container_name: node-exporter2
     restart: unless-stopped
     volumes:      
       - /proc:/host/proc:ro      
