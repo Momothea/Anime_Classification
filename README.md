@@ -1,6 +1,6 @@
 # Anime_Classification
 
-run the command:
+To run all the containers, run the command:
 
     docker compose up
 
