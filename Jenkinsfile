@@ -67,14 +67,14 @@ pipeline {
             }
         }
 
-        stage('Merge with dev3'){
+        stage('Merge with master'){
             steps {
                 sshagent(credentials: ['privateKey1']) {
                     sh'git pull'
                     sh'git checkout staging'
-                    sh'git checkout dev3'
+                    sh'git checkout master'
                     sh'git merge staging' 
-                    sh'git push -f origin dev3'
+                    sh'git push -f origin master'
                     
                     }
             }
