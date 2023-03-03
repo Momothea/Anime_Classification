@@ -5,6 +5,6 @@ To run all the containers, run the command:
     docker compose up
 
 
-test the app:
+test the routes:
 
 python -m unittest 
