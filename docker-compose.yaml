@@ -79,7 +79,6 @@ services:
      
     ports:       
       - 9090:9090
-    user: root
     expose:      
       - 9090
     networks:       

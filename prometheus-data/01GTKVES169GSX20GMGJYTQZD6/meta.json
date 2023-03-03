@@ -1,0 +1,17 @@
+{
+	"ulid": "01GTKVES169GSX20GMGJYTQZD6",
+	"minTime": 1677774390375,
+	"maxTime": 1677780000000,
+	"stats": {
+		"numSamples": 7102,
+		"numSeries": 1286,
+		"numChunks": 1286
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GTKVES169GSX20GMGJYTQZD6"
+		]
+	},
+	"version": 1
+}

@@ -1,0 +1,17 @@
+{
+	"ulid": "01GTKVERRVRV7125K2T9B8F6JQ",
+	"minTime": 1677767158104,
+	"maxTime": 1677772800000,
+	"stats": {
+		"numSamples": 10707,
+		"numSeries": 1285,
+		"numChunks": 1285
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GTKVERRVRV7125K2T9B8F6JQ"
+		]
+	},
+	"version": 1
+}
