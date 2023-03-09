@@ -4,8 +4,8 @@ from prometheus_flask_exporter import PrometheusMetrics
 
 app = create_app()
 
-metrics = PrometheusMetrics(app)
-metrics.info("app_info", "App Info, this can be anything you want", version="1.0.0")
+metrics = PrometheusMetrics(app = app)
+metrics.info("app_info", 'Application info', version='1.0.3')
 
 
 if __name__ == '__main__':
