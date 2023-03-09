@@ -4,19 +4,20 @@ from prometheus_client import start_http_server, Summary, Counter, Info, Histogr
 from prometheus_client.core import CollectorRegistry
 from prometheus_flask_exporter import PrometheusMetrics
 import joblib # Charger le modèle depuis le fichier
-rf_loaded = joblib.load('random_forest_regressor.pkl')
+#rf_loaded = joblib.load('random_forest_regressor.pkl')
 import pandas as pd
 import os
 import random
 
 print(os.listdir('/app/data/'))
+rf_loaded = joblib.load('/app/data/random_forest_regressor.pkl')
 
 
 
 # Synopsis 
 import gensim
 from sklearn.preprocessing import LabelEncoder # Charger un modèle Word2Vec pré-entraîné (par exemple GoogleNews-vectors-negative300)
-w2v_model = gensim.models.KeyedVectors.load_word2vec_format(r'./GoogleNews-vectors-negative300-SLIM.bin.gz', binary=True)
+w2v_model = gensim.models.KeyedVectors.load_word2vec_format(r'/app/data/GoogleNews-vectors-negative300-SLIM.bin.gz', binary=True)
 
 
 def vectorize_sentence(sentence):
@@ -29,27 +30,14 @@ def vectorize_sentence(sentence):
     else:
         return pd.Series([0]*300)
     
-#vector_synopsis = vectorize_sentence(synopsis)
-#final_synopsis = vector_synopsis.sum()
-# Genre
-#genre = genre.sort_values()# Encoder les variables catégorielles en variables numériques
-#le = LabelEncoder()
-#genre_float = le.fit_transform(genre)# Studio
-#studio_float = le.fit_transform(studio)# Producer
-#producer_float = le.fit_transform(producer)# Title
-#title_float = le.fit_transform(title)
-#type_float = le.fit_transform(Type)
-#predictions = rf_loaded.predict([genre_float, final_synopsis, producer_float, studio_float, type_float, title_float] + [0]*25)
-
-
-
-
 
 _INF = float("inf")
 
 app = Flask(__name__)
 
-PrometheusMetrics(app)
+metrics = PrometheusMetrics(app)
+metrics.info("app_info", "App Info, this can be anything you want", version="1.0.0")
+
 
 @app.route('/')
 def hello_world():

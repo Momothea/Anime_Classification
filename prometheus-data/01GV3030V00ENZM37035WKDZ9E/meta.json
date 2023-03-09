@@ -1,0 +1,17 @@
+{
+	"ulid": "01GV3030V00ENZM37035WKDZ9E",
+	"minTime": 1678339424104,
+	"maxTime": 1678341600000,
+	"stats": {
+		"numSamples": 77962,
+		"numSeries": 1551,
+		"numChunks": 1551
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GV3030V00ENZM37035WKDZ9E"
+		]
+	},
+	"version": 1
+}
